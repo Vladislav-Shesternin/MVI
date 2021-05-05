@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="todoCreatorViewModel"
+            type="com.veldan.mvi.viewModels.TodoCreatorViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textAllCaps="true"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/view_blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="TODO 0" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_progress_bar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/view_blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".4"
+            app:lottie_rawRes="@raw/progress_bar" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_V_70"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".7" />
+
+        <View
+            android:id="@+id/view_red"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="30dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="@color/red"
+            app:layout_constraintBottom_toBottomOf="@id/lottie_check_box_red"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/guide_V_70"
+            app:layout_constraintTop_toTopOf="@id/lottie_check_box_red" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_check_box_red"
+            click="@{todoCreatorViewModel.lambdaLoadTodoColor}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/lottie_check_box_green"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/guide_V_70"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_rawRes="@raw/check_box"
+            tools:background="@color/red" />
+
+        <View
+            android:id="@+id/view_green"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="30dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="@color/green"
+            app:layout_constraintBottom_toBottomOf="@id/lottie_check_box_green"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/guide_V_70"
+            app:layout_constraintTop_toTopOf="@id/lottie_check_box_green" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_check_box_green"
+            click="@{todoCreatorViewModel.lambdaLoadTodoColor}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/lottie_check_box_blue"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/guide_V_70"
+            app:layout_constraintTop_toBottomOf="@+id/lottie_check_box_red"
+            app:lottie_rawRes="@raw/check_box"
+            tools:background="@color/green" />
+
+        <View
+            android:id="@+id/view_blue"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="30dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="@color/blue"
+            app:layout_constraintBottom_toBottomOf="@id/lottie_check_box_blue"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/guide_V_70"
+            app:layout_constraintTop_toTopOf="@id/lottie_check_box_blue" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_check_box_blue"
+            click="@{todoCreatorViewModel.lambdaLoadTodoColor}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/lottie_check_box_yellow"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/guide_V_70"
+            app:layout_constraintTop_toBottomOf="@+id/lottie_check_box_green"
+            app:lottie_rawRes="@raw/check_box"
+            tools:background="@color/blue" />
+
+        <View
+            android:id="@+id/view_yellow"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="30dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="@color/yellow"
+            app:layout_constraintBottom_toBottomOf="@id/lottie_check_box_yellow"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/guide_V_70"
+            app:layout_constraintTop_toTopOf="@id/lottie_check_box_yellow" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_check_box_yellow"
+            click="@{todoCreatorViewModel.lambdaLoadTodoColor}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintBottom_toTopOf="@id/lottie_check_box_purple"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/guide_V_70"
+            app:layout_constraintTop_toBottomOf="@id/lottie_check_box_blue"
+            app:lottie_rawRes="@raw/check_box"
+            tools:background="@color/yellow" />
+
+        <View
+            android:id="@+id/view_purple"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="30dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="@color/purple"
+            app:layout_constraintBottom_toBottomOf="@id/lottie_check_box_purple"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/guide_V_70"
+            app:layout_constraintTop_toTopOf="@id/lottie_check_box_purple" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_check_box_purple"
+            click="@{todoCreatorViewModel.lambdaLoadTodoColor}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/guide_V_70"
+            app:layout_constraintTop_toBottomOf="@+id/lottie_check_box_yellow"
+            app:lottie_rawRes="@raw/check_box"
+            tools:background="@color/purple" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
